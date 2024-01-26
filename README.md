@@ -18,4 +18,11 @@ This is mostly an excersise in what would be an ideal object oriented and multip
     - then we make the object like `x <- scatterplot(data, ...)` and the plot it `plot(x)`???
     - or do we do like `plot(<put data.frame here>, x = <col_name>, y = <col_name or function>, ...)`?
     - where `y` is optional and could be left out (in which case it guesses what plot you want), or it could be a column (make a scatter plot) or it could be a function (e.g. `hist` it makes a histogram)
+- the plot itself (i.e. the output of `plot`) should be an object, similar to ggplot in this way
+- each element of the plot should also be an object with robust classes
+    - e.g. x-axis inherits from axis, which has properties like range, transformation, ticks, etc
+    - e.g. "the data" should be a copy of the object passed to `plot`
+    - e.g. the plotting symbols should be of a class (like `point` inherits from a generic `symbol` or something) and have properties like line width, relative size, etc
+    - e.g. the plotting region (versus the whole device) should be an object of class, e.g., `canvas`
+- it would be dope if the plots render in viewer and we could have a GUI that lets users identify what each component is (like click on something and a window pops up showing the name of the element, its class, and some example code to manipulate it, almost like what you would get typing `?class-name` but you see it when clicking on the object in the plot
 
